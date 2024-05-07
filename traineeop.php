@@ -38,4 +38,13 @@ if(isset($_POST['updateTrainee'])){
         header("location:trainees.php");
     }
 }
+
+if(isset($_GET['delete'])){
+    $id=$_GET['delete'];
+    $delete="DELETE from Trainees where Trainee_Id='$id'";
+    $execute=mysqli_query($connect,$delete);
+    if($delete){
+        header("location:trainees.php");
+    }
+}
 ?>

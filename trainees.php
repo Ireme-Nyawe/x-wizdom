@@ -196,7 +196,7 @@ if(!isset($_SESSION['user'])){
                                     <td><?php echo $trainees['Gender']?></td>
                                     <td><?php echo $trainees['Trade_Name']?></td>
                                     <td>
-                                        <a href="trainees.php?delete=<?php echo $trainees['Trainee_Id'];?>" onclick="return confirm('Are You Sure About Deleting <?php echo $trainees['FirstName'];?>')">Delete</a>
+                                        <a href="trainees.php?delete=<?php echo $trainees['Trainee_Id'];?>" onclick="return confirm('Are You Sure About Deleting <?php echo $trainees['FirstNames'];?>')">Delete</a>
                                         <a href="trainees.php?what=<?php echo $trainees['Trainee_Id']?>">Update</a>
                                     </td>
                                 </tr>
