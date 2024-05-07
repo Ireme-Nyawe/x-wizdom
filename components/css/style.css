@@ -1,0 +1,162 @@
+*{
+    background-color: beige;
+    font-family: karl,sans-serif;
+    box-sizing: border-box;
+    margin: 0%;
+}
+.form-head,.nav-title{
+    color: rgb(255, 150, 0);
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+.form-title{
+    color: rgb(255, 150, 0);
+    font-size: 22px;
+}
+.all{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+form{
+    background: white;
+    padding:3%;
+    width: 45vw;
+    
+}
+.text-right{
+    text-align: right;
+}
+label,input,h3,p,span,a,ol,li,h2,nav,div{
+    background: transparent;
+}
+label{
+    font-size: large;
+}
+input[type="text"],input[type="password"]{
+    width: 70%;
+    font-size: small;
+    border: 2px solid #ccc;
+    padding: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+}
+input[type="text"]:focus,input[type="password"]:focus{
+    box-shadow: 0 0 5px #ccc;
+}
+input[type="submit"]{
+color: rgb(255, 150, 0);
+border: 0;
+font-size: large;
+text-transform: uppercase;
+/* border-radius: 5px; */
+background: beige;
+padding: 2%;
+padding-right: 3%;
+padding-left: 3%;
+margin-left: 35%;
+cursor: pointer;
+
+}
+.submit{
+    color: rgb(255, 150, 0);
+    border: 0;
+    font-size: large;
+    text-transform: uppercase;
+    background: beige;
+    padding: 2%;
+    padding-right: 3%;
+    cursor: pointer;
+     
+}
+input[type="submit"]:hover{
+    font-weight: bold;
+}
+.warning{
+    color: red;
+    background: beige;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    width:100%;
+}
+.success{
+    color: blue;
+    background: beige;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    width:100%;
+}
+
+.top{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background: white;
+    width: 100%;
+    z-index: 10;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.side-menu{
+    background: white;
+    width: 20vw;
+    padding: 10px;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.in_center{
+    width: 100%;
+    height: auto;
+    align-self: center;
+
+}
+.text-black{
+    color: black;
+}
+.in_center li{
+    list-style: none;
+    font-size: large;
+    margin-top: 2vh;
+}
+.in_center li a{
+    text-decoration: none;
+    color: rgb(255, 150, 0);
+}
+.in_center li a:hover{
+    font-weight: bold;
+}
+.text-blue{
+    color: red;
+}
+.page-content{
+    margin-left: 21vw;
+    margin-top: 11vh;
+    width: 78vw;
+    height: 88vh;
+    overflow: auto;
+}
+
+@media screen and (max-width: 770px) {
+    form{
+        width: 100vw;
+        height: auto;
+    }
+}

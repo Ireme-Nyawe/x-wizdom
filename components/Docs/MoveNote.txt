@@ -1,0 +1,17 @@
+X_WISDOM Project
+-----------------
+1. create database with it's table as shown:
+
+-create table User (User_Id int auto_increment primary key, UserName varchar(200) not null unique, Password varchar(100) not null)
+
+-create table Trade (Trade_Id int auto_increment primary key, Trade_Name varchar(100) not null unique);
+Query OK, 0 rows affected (0,130 sec)
+
+-create table Trainees (Trainee_Id int auto_increment primary key, FirstNames varchar(200), LastName varchar(200),
+ Gender varchar(20), Trade_Id int, foreign key (Trade_id) references Trade(Trade_Id) on delete cascade on update cascade);
+
+-create table Marks (Trainee_Id int, Trade_Id int, Module_Name varchar(100), Formative_Assessment decimal(2,2), 
+Summative_Assessment decimal(2,2), Total_Marks decimal(3,2),foreign key(Trainee_Id) references Trainees(Trainee_Id),
+foreign key(Trade_Id) references Trade(Trade_Id));
+
+2. Create Register and Login Page
