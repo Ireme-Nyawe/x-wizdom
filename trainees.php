@@ -33,34 +33,48 @@ if(!isset($_SESSION['user'])){
              <form action="" method="post">
                         <h3>Add New Trainee Here</h3>
                         <?php
-                        // include "traineeop.php";
+                        include "traineeop.php";
                         ?>
                         <br>
                         <div class="two-part">
                             <div class="part-one">
                             <p>
                             <label for="">First Name</label><br>
-                            <input type="text" name="tradeName" placeholder="Type --">
+                            <input type="text" name="fname" placeholder="Type --">
                             </p>
                             <p>
                             <label for="">Last Name</label><br>
-                            <input type="text" name="tradeName" placeholder="Type --">
+                            <input type="text" name="lname" placeholder="Type --">
                             </p>
                             </div>
                             <div class="part-two">
                             <p>
                             <label for="">Gender</label><br>
-                            <input type="text" name="tradeName" placeholder="Type --">
+                            <select name="gender">
+                                <option value="">Select Trainee Gender ..</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                             </p>
                             <p>
                             <label for="">Trade</label><br>
-                            <input type="text" name="tradeName" placeholder="Type --">
+                            <select name="trade">
+                                <option value="">Select Trainee Trade</option>
+                                <?php
+                                $getTrades=mysqli_query($connect,"SELECT * from Trade");
+                                while($trades=mysqli_fetch_array($getTrades)){
+                                    ?>
+                                    <option value="<?php echo $trades['Trade_Id'];?>"><?php echo $trades['Trade_Name'];?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                             </p>
                             </div>
                         </div>
                         <p>
                             <br>
-                            <input type="submit" value="Add Now" name="addTrade">
+                            <input type="submit" value="Add Now" name="addTrainee">
                         </p>
                     </form>
              </div>

@@ -41,7 +41,7 @@ label,input,h3,p,span,a,ol,li,h2,nav,div{
 label{
     font-size: large;
 }
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"],select{
     width: 70%;
     font-size: small;
     border: 2px solid #ccc;
