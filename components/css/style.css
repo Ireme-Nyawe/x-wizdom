@@ -22,11 +22,15 @@
     transform: translate(-50%,-50%);
     
 }
-form{
+.form{
     background: white;
     padding:3%;
     width: 45vw;
     
+}
+form{
+    background: white;
+    padding: 2%;
 }
 .text-right{
     text-align: right;
@@ -49,6 +53,18 @@ input[type="text"]:focus,input[type="password"]:focus{
     box-shadow: 0 0 5px #ccc;
 }
 input[type="submit"]{
+
+    color: rgb(255, 150, 0);
+    border: 0;
+    font-size: large;
+    text-transform: uppercase;
+    background: beige;
+    padding: 2%;
+    padding-right: 3%;
+    cursor: pointer;
+}
+.submit{
+    
 color: rgb(255, 150, 0);
 border: 0;
 font-size: large;
@@ -60,17 +76,6 @@ padding-right: 3%;
 padding-left: 3%;
 margin-left: 35%;
 cursor: pointer;
-
-}
-.submit{
-    color: rgb(255, 150, 0);
-    border: 0;
-    font-size: large;
-    text-transform: uppercase;
-    background: beige;
-    padding: 2%;
-    padding-right: 3%;
-    cursor: pointer;
      
 }
 input[type="submit"]:hover{
@@ -153,10 +158,39 @@ input[type="submit"]:hover{
     height: 88vh;
     overflow: auto;
 }
+.two-part{
+    display: flex;
+    justify-content: center;
+}
+.part-one{
+    width: 50%;
+    align-self: center;
+}
+.part-two{
+    width: 50%;
+    align-self: center;
+}
+table{
+    width: 100%;
+}
+table,tr,td,th{
+    border: 2px solid white;
+    /* width: 100%; */
+}
+
 
 @media screen and (max-width: 770px) {
     form{
         width: 100vw;
         height: auto;
+    }
+    .two-part{
+        display: block;
+    }
+    .part-one{
+        width: 100%;
+    }
+    .part-two{
+        width: 100%;
     }
 }

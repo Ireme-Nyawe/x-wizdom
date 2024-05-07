@@ -20,7 +20,7 @@ session_start();
         }
         if($what=="login"){
             ?>
-        <form action="" method="post">
+        <form action="" method="post" class="form">
             <h3 class="form-head">Login <span class="text-black">|</span> X-Wisdom School</h3>
             <br>
             <hr>
@@ -48,7 +48,7 @@ session_start();
         }
         else{
             ?>
-        <form action="" method="post">
+        <form action="" method="post" class="form">
             <h3 class="form-head">Register <span class="text-black">|</span> X-Wisdom School</h3>
             <br>
             <hr>
