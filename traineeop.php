@@ -25,4 +25,17 @@ if(isset($_POST['addTrainee'])){
     }
   }
 }
+if(isset($_POST['updateTrainee'])){
+    $id=$_GET['what'];
+    $fname=$_POST['fnamed'];
+    $lname=$_POST['lnamed'];
+    $gender=$_POST['genderd'];
+    $trade=$_POST['traded'];
+
+    $query="UPDATE Trainees set FirstNames='$fname',LastName='$lname',Gender='$gender',Trade_Id='$trade' where Trainee_Id='$id'";
+    $execute=mysqli_query($connect,$query);
+    if($execute){
+        header("location:trainees.php");
+    }
+}
 ?>

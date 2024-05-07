@@ -30,8 +30,16 @@ if(!isset($_SESSION['user'])){
             <h2><u>TRAI</u>NEES</h2>
              <br>
              <div class="">
-             <form action="" method="post">
+             <?php
+             $what="add";
+             if(isset($_GET['what'])){
+                $what=$_GET['what'];
+             }
+             if($what=="add"){
+                ?>
+                <form action="" method="post">
                         <h3>Add New Trainee Here</h3>
+                        <br>
                         <?php
                         include "traineeop.php";
                         ?>
@@ -77,6 +85,82 @@ if(!isset($_SESSION['user'])){
                             <input type="submit" value="Add Now" name="addTrainee">
                         </p>
                     </form>
+                <?php
+             }
+             else{
+                $id=$_GET['what'];
+                $select="SELECT * from Trainees where Trainee_Id='$id'";
+                $execute=mysqli_query($connect,$select);
+                $trainee=mysqli_fetch_array($execute);
+                ?>
+                <form action="" method="post">
+                        <h3>Update Trainee Here</h3>
+                        <br>
+                        <?php
+                        include "traineeop.php";
+                        ?>
+                        <br>
+                        <div class="two-part">
+                            <div class="part-one">
+                            <p>
+                            <label for="">First Name</label><br>
+                            <input type="text" name="fnamed" placeholder="Type --" value="<?php echo $trainee['FirstNames']?>">
+                            </p>
+                            <p>
+                            <label for="">Last Name</label><br>
+                            <input type="text" name="lnamed" placeholder="Type --" value="<?php echo $trainee['LastName']?>">
+                            </p>
+                            </div>
+                            <div class="part-two">
+                            <p>
+                            <label for="">Gender</label><br>
+                            <select name="genderd">
+                                <?php
+                                if($trainee['Gender']=="Male"){
+                                    ?>
+                                     <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                    <?php
+                                }
+                                else{
+                                    ?>
+                                <option value="Female">Female</option>
+                                     <option value="Male">Male</option>
+                                    <?php
+
+                                }
+                                ?>
+                               
+                            </select>
+                            </p>
+                            <p>
+                            <label for="">Trade</label><br>
+                            <select name="traded">
+                                <?php
+                                $trade=$trainee['Trade_Id'];
+                            $tn=mysqli_fetch_array(mysqli_query($connect,"SELECT * from Trade where Trade_Id='$trade'"))['Trade_Name'];
+                                ?>
+                                <option value="<?php echo $trade;?>"><?php echo $tn;?></option>
+                                <?php
+                                $getTrades=mysqli_query($connect,"SELECT * from Trade where Trade_Id!='$trade'");
+                                while($trades=mysqli_fetch_array($getTrades)){
+                                    ?>
+                                    <option value="<?php echo $trades['Trade_Id'];?>"><?php echo $trades['Trade_Name'];?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            </p>
+                            </div>
+                        </div>
+                        <p>
+                            <br>
+                            <input type="submit" value="Update Now" name="updateTrainee">
+                        </p>
+                    </form>
+                <?php
+             }
+             ?>
              </div>
                 <div class="">
                     <hr>
@@ -112,8 +196,8 @@ if(!isset($_SESSION['user'])){
                                     <td><?php echo $trainees['Gender']?></td>
                                     <td><?php echo $trainees['Trade_Name']?></td>
                                     <td>
-                                        <a href="home.php?delete=<?php echo $trainees['Trade_Id'];?>" onclick="return confirm('Are You Sure About Deleting <?php echo $trainees['Trade_Name'];?>')">Delete</a>
-                                        <a href="home.php?what=<?php echo $trainees['Trade_Id']?>">Update</a>
+                                        <a href="trainees.php?delete=<?php echo $trainees['Trainee_Id'];?>" onclick="return confirm('Are You Sure About Deleting <?php echo $trainees['FirstName'];?>')">Delete</a>
+                                        <a href="trainees.php?what=<?php echo $trainees['Trainee_Id']?>">Update</a>
                                     </td>
                                 </tr>
                                 <?php
