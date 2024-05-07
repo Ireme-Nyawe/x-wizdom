@@ -59,12 +59,11 @@ input[type="submit"]{
     font-size: large;
     text-transform: uppercase;
     background: beige;
-    padding: 2%;
-    padding-right: 3%;
+    padding: 8px;
+    padding-right: 10px;
     cursor: pointer;
 }
 .submit{
-    
 color: rgb(255, 150, 0);
 border: 0;
 font-size: large;
