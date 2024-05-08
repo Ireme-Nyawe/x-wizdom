@@ -130,7 +130,45 @@ if(!isset($_SESSION['user'])){
                     ?>
                     </form>
                     <div>
-               
+                        <hr>
+               <table>
+                <tr>
+                    <th>#</th>
+                    <th>Trade</th>
+                    <th>Module</th>
+                </tr>
+                <?php
+                $select="SELECT Marks.*, Trade.*
+                FROM Marks
+                JOIN Trade ON Marks.Trade_Id = Trade.Trade_Id
+                GROUP BY Marks.Module_Name, Marks.Trade_Id
+                ORDER BY Marks.Trade_Id ASC;
+                ";
+                $execute=mysqli_query($connect,$select);
+                $tradee="";
+                $no=1;
+                while($info=mysqli_fetch_array($execute)){
+                    $trade=$info['Trade_Name'];
+                    if($trade!=$tradee){
+                        $no=1;
+                        ?>
+                        <tr>
+                            <td colspan="100"><b><?php echo $trade;?> - Trade</b></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    <tr>
+                        <th><?php echo $no;?></th>
+                        <td><?php echo $trade;?></td>
+                        <td><?php echo $info['Module_Name']?></td>
+                    </tr>
+                    <?php
+                    $tradee=$trade;
+                    $no++;
+                }
+                ?>
+               </table>
     </div>
 </body>
 </html>
