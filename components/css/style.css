@@ -62,6 +62,7 @@ input[type="submit"]{
     padding: 8px;
     padding-right: 10px;
     cursor: pointer;
+    box-shadow: 0 0 5px #ccc;
 }
 .submit{
 color: rgb(255, 150, 0);
