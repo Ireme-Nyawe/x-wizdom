@@ -89,15 +89,28 @@ if(!isset($_SESSION['user'])){
                             else{
                                 $no=1;
                                 while($trainees=mysqli_fetch_array($execute)){
+                                    $tid=$trainees['Trainee_Id'];
+                                    $getMarks="SELECT * from Marks where Trainee_Id='$tid' and Module_Name='$module'";
+                                    $check=mysqli_query($connect,$getMarks);
+                                    $rows=mysqli_num_rows($check);
+                                    $tm=mysqli_fetch_array($check);
+                                    $fa=0;
+                                    $sa=0;
+                                    if($rows)
+                                    {
+                                         $fa=$tm['Formative_Assessment'];
+                                         $sa=$tm['Summative_Assessment'];
+
+                                    }
                                     ?>
                                     <tr>
                                         <td><?php echo $no;?></td>
                                         <td><?php echo $trainees['FirstNames']?> <?php echo $trainees['LastName']?></td>
                                         <th>
-                                            <input type="text" value="0" name="<?php echo 'f'.$trainees['Trainee_Id'];?>">
+                                            <input type="text" value="<?php echo $fa;?>" name="<?php echo 'f'.$trainees['Trainee_Id'];?>">
                                         </th>
                                         <th>
-                                            <input type="text" value="0" name="<?php echo 's'.$trainees['Trainee_Id'];?>">
+                                            <input type="text" value="<?php  echo $sa;?>" name="<?php echo 's'.$trainees['Trainee_Id'];?>">
                                         </th>
                                     </tr>
                                     <?php
@@ -106,8 +119,8 @@ if(!isset($_SESSION['user'])){
                             }
                             ?>
                             <tr>
-                                <input type="text" name="mdn" value="<?php echo $module;?>">
-                                <input type="text" name="td" value="<?php echo $trade;?>">
+                                <input type="hidden" name="mdn" value="<?php echo $module;?>">
+                                <input type="hidden" name="td" value="<?php echo $trade;?>">
                                 <th colspan="100"><input type="submit" name="saveMarks" value="Save Marks"></th>
                             </tr>
                         </table>
